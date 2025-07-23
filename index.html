@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Mock Interview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .glow-button {
+      background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b);
+      background-size: 300% 300%;
+      animation: glow 5s ease infinite;
+    }
+
+    @keyframes glow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const phrases = ["Real AI Feedback", "Mock Interviews", "Job-Ready Skills"];
+      let i = 0;
+      const textSpan = document.getElementById("type-text");
+
+      setInterval(() => {
+        textSpan.textContent = phrases[i];
+        i = (i + 1) % phrases.length;
+      }, 2000);
+    });
+  </script>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 min-h-screen font-sans flex flex-col">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center p-6 bg-white shadow-lg z-10 sticky top-0">
+    <h1 class="text-3xl font-bold text-indigo-700">🤖 AI Interview Pro</h1>
+    <div class="flex items-center space-x-6">
+      <!-- New Home Link -->
+      <a href="index.html" class="text-indigo-600 hover:text-indigo-700 font-semibold">Home</a>
+      <!-- Search Bar -->
+      <div class="relative">
+        <input type="text" class="px-4 py-2 rounded-lg border border-indigo-400 focus:outline-none"
+          placeholder="Search...">
+      </div>
+      <!-- Login Link -->
+      <a href="auth.html"
+        class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">Login</a>
+    </div>
+  </nav>
+
+  <!-- MAIN SECTION -->
+  <section
+    class="flex flex-col md:flex-row items-center justify-center md:justify-between px-6 py-24 md:py-32 flex-grow">
+    <div class="text-center md:text-left max-w-xl">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-indigo-800 mb-4 leading-tight">
+        Practice Interviews with <br><span id="type-text" class="text-pink-600">Real AI Feedback</span>
+      </h2>
+      <p class="text-gray-700 mb-6 text-lg">Simulate real interviews for roles at top tech companies like Google,
+        Amazon, and Infosys. Get smarter, faster with personalized feedback.</p>
+      <a href="auth.html"
+        class="glow-button text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition">🚀
+        Start Your Interview</a>
+    </div>
+
+    <div class="mt-10 md:mt-0 floating">
+      <img src="assets/robot.png" alt="AI Bot"
+        class="w-[450px] md:w-[500px] rounded-xl shadow-2xl border-4 border-indigo-300" />
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="px-6 py-16 bg-white">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl font-bold text-indigo-800">Why Choose Us?</h3>
+      <p class="text-gray-600 mt-2">We help you level up your interview game with intelligent tools.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="p-6 bg-indigo-100 rounded-xl shadow-md hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-indigo-700 mb-2">AI-Powered Feedback</h4>
+        <p class="text-gray-700">Get personalized feedback on your performance with actionable insights.</p>
+      </div>
+      <div class="p-6 bg-pink-100 rounded-xl shadow-md hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-pink-700 mb-2">Real-World Questions</h4>
+        <p class="text-gray-700">Practice with questions asked in top companies' technical interviews.</p>
+      </div>
+      <div class="p-6 bg-yellow-100 rounded-xl shadow-md hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-yellow-700 mb-2">Progress Tracking</h4>
+        <p class="text-gray-700">Track your improvement over time with detailed reports and scores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="bg-indigo-50 py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center text-indigo-800 mb-8">What Our Users Say</h3>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <p class="text-gray-700 mb-4">"The AI feedback was incredibly accurate and helped me ace my TCS interview!"
+          </p>
+          <div class="text-indigo-700 font-semibold">– Rahul, Software Engineer</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <p class="text-gray-700 mb-4">"The questions felt just like the real thing. This tool boosted my confidence
+            before my Wipro interview."</p>
+          <div class="text-indigo-700 font-semibold">– Priya, Developer Intern</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold text-indigo-800 mb-6">Get In Touch</h3>
+      <p class="text-gray-700 mb-6">Have any questions or feedback? We'd love to hear from you!</p>
+      <a href="contact.html"
+        class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- COMPANY LOGOS FOOTER -->
+  <footer class="bg-white py-12 shadow-inner mt-auto">
+    <h3 class="text-center font-semibold text-gray-600 mb-6 text-xl">Trusted by aspiring candidates of:</h3>
+    <div class="flex flex-wrap justify-center gap-8 text-sm font-medium text-gray-500">
+      <span>Google</span>
+      <span>Microsoft</span>
+      <span>Amazon</span>
+      <span>Infosys</span>
+      <span>TCS</span>
+      <span>Wipro</span>
+      <span>Accenture</span>
+      <span>Zoho</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>

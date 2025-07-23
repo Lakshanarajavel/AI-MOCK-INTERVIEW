@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Mock Interview | Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+  <nav class="navbar navbar-expand-lg bg-white shadow p-3">
+    <div class="container">
+      <a class="navbar-brand text-indigo-600 font-bold" href="#">🤖 AI Interview Pro</a>
+    </div>
+  </nav>
+
+  <main class="container text-center my-5">
+    <h1 class="text-2xl font-bold mb-4">Interview Results</h1>
+    <p class="mb-3 text-green-600 font-semibold">Great job! Your responses have been submitted.</p>
+    <div id="result" class="bg-white rounded shadow p-4">
+      <h5 class="text-xl font-bold">Summary:</h5>
+      <ul class="list-group text-start mt-3" id="summaryList">
+        <!-- Results will be inserted here -->
+      </ul>
+    </div>
+    <a href="index.html" class="btn btn-outline-primary mt-4">Back to Home</a>
+    <a href="summary.html" class="btn btn-outline-primary mt-4">score</a>
+    <h2 class="text-xl font-bold text-center mb-4">Interview Summary for <span id="userEmail"></span> (<span id="userRole"></span>)</h2>
+
+<script>
+  document.getElementById("userEmail").innerText = localStorage.getItem("userEmail");
+  document.getElementById("userRole").innerText = localStorage.getItem("userRole");
+</script>
+
+  </main>
+
+  <script>
+    const answers = JSON.parse(localStorage.getItem('interviewAnswers')) || [];
+    const questions = JSON.parse(localStorage.getItem('interviewQuestions')) || [];
+
+    const summaryList = document.getElementById('summaryList');
+    summaryList.innerHTML = questions.map((q, i) => `
+      <li class="list-group-item">
+        <strong>Q:</strong> ${q}<br />
+        <strong>A:</strong> ${answers[i] || "Not answered"}
+      </li>
+    `).join('');
+  </script>
+</body>
+</html>

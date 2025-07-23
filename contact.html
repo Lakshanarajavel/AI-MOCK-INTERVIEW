@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact Us - AI Mock Interview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #798eb7;
+            color: #edf2f7;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+        }
+
+        .dark-mode .text-indigo-600,
+        .dark-mode .text-indigo-800 {
+            color: #cbd5e0;
+        } 
+
+        .dark-mode .bg-indigo-100 {
+            background-color: #4a5568;
+        }
+
+        .dark-mode .text-gray-700 {
+            color: #edf2f7;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            background-color: #4c51bf;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .fab:hover {
+            background-color: #6b46c1;
+        }
+
+        /* Input Animation */
+        .input-field:focus {
+            border-color: #4c51bf;
+            outline: none;
+        }
+
+        .input-field:focus+.input-label {
+            transform: translateY(-20px);
+            font-size: 0.875rem;
+            color: #4c51bf;
+        }
+    </style>
+    <script>
+        // Dark Mode Toggle
+        document.addEventListener("DOMContentLoaded", () => {
+            const darkModeToggle = document.getElementById("dark-mode-toggle");
+            const body = document.body;
+            darkModeToggle.addEventListener("click", () => {
+                body.classList.toggle("dark-mode");
+                const isDark = body.classList.contains("dark-mode");
+                localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+            });
+
+            // Load user's previous preference
+            if (localStorage.getItem("darkMode") === "enabled") {
+                body.classList.add("dark-mode");
+            }
+        });
+
+        // Form Validation
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (!name || !email || !message) {
+                alert("All fields are required!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 min-h-screen font-sans flex flex-col">
+    <!-- NAVBAR -->
+    <nav class="flex justify-between items-center p-6 bg-white shadow-lg z-10 sticky top-0">
+        <h1 class="text-3xl font-bold text-indigo-700">🤖 AI Interview Pro</h1>
+        <div class="flex items-center space-x-6">
+            <a href="index.html" class="text-indigo-600 hover:text-indigo-700 font-semibold">Home</a>
+            <a href="contact.html" class="text-indigo-600 hover:text-indigo-700 font-semibold">Contact Us</a>
+            <button id="dark-mode-toggle" class="bg-gray-500 text-white p-2 rounded-md">🌙</button>
+        </div>
+    </nav>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="flex flex-col md:flex-row items-center justify-center md:justify-between px-6 py-24 md:py-32">
+        <div class="max-w-lg w-full">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-indigo-800 mb-6">Get in Touch</h2>
+            <p class="text-gray-700 mb-8">Have any questions or need help with something? Fill out the form below, and
+                we’ll get back to you as soon as possible.</p>
+
+            <form onsubmit="return validateForm()" action="#" method="POST" class="space-y-6">
+                <div class="relative">
+                    <input type="text" id="name" name="name"
+                        class="input-field w-full px-4 py-3 rounded-lg border-2 border-gray-300" required />
+                    <label for="name"
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 transition-all input-label">Your
+                        Name</label>
+                </div>
+                <div class="relative">
+                    <input type="email" id="email" name="email"
+                        class="input-field w-full px-4 py-3 rounded-lg border-2 border-gray-300" required />
+                    <label for="email"
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 transition-all input-label">Your
+                        Email</label>
+                </div>
+                <div class="relative">
+                    <textarea id="message" name="message" rows="4"
+                        class="input-field w-full px-4 py-3 rounded-lg border-2 border-gray-300" required></textarea>
+                    <label for="message"
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 transition-all input-label">Your
+                        Message</label>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">Send
+                    Message</button>
+            </form>
+        </div>
+
+        <div class="mt-10 md:mt-0 w-full md:w-[45%]">
+            <h3 class="text-2xl font-semibold text-indigo-800 mb-6">Our Location</h3>
+            <div id="map" class="w-full h-[300px] rounded-lg shadow-md" data-aos="fade-left"></div>
+        </div>
+    </section>
+
+    <!-- FLOATING ACTION BUTTON -->
+    <button class="fab" onclick="window.location.href='tel:+1234567890'">
+        📞
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="bg-indigo-800 text-white py-6 mt-12">
+        <div class="text-center">
+            <p>&copy; 2025 AI Mock Interview. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS Library Initialization -->
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true,
+        });
+
+        // Load Google Maps
+        function initMap() {
+            const location = { lat: 40.7128, lng: -74.0060 }; 
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: location,
+            });
+            new google.maps.Marker({
+                position: location,
+                map: map,
+                title: "Our Office Location",
+            });
+        }
+
+        // Load Google Maps API
+        const script = document.createElement("script");
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA...REPLACE_WITH_REAL_KEY...&callback=initMap";
+
+
+
+        script.async = true;
+        document.head.appendChild(script);
+    </script>
+</body>
+
+</html>

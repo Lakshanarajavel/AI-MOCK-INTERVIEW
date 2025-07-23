@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - AI Mock Interview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-100 to-blue-100 min-h-screen flex flex-col">
+
+  <!-- Header with links -->
+  <header class="bg-white shadow-md py-4">
+    <nav class="flex justify-between items-center px-6">
+      <a href="index.html" class="text-xl font-bold text-indigo-600 hover:text-indigo-700">Home</a>
+      <div class="flex gap-4">
+        <a href="interview.html" class="text-xl font-medium text-indigo-600 hover:text-indigo-700">Interview</a>
+        <a href="results.html" class="text-xl font-medium text-indigo-600 hover:text-indigo-700">Results</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Login Form -->
+  <div class="bg-white shadow-lg p-8 rounded-lg w-full max-w-md mx-auto mt-12">
+    <h2 class="text-2xl font-bold text-center text-indigo-600 mb-6">Login to AI Interview Pro</h2>
+
+    <input type="email" id="email" class="w-full p-3 mb-3 border border-gray-300 rounded" placeholder="Email">
+    <input type="password" id="password" class="w-full p-3 mb-3 border border-gray-300 rounded" placeholder="Password">
+
+    <label class="block mb-2 font-medium text-gray-700">Select Role:</label>
+    <select id="role" class="w-full mb-4 p-3 border border-gray-300 rounded">
+      <option value="">-- Choose Role --</option>
+      <option value="Software Engineer">Software Engineer</option>
+      <option value="Data Analyst">Data Analyst</option>
+      <option value="Product Manager">Product Manager</option>
+    </select>
+
+    <button id="loginBtn" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">Login & Continue</button>
+    <p class="text-sm text-center text-gray-500 mt-4">Demo only – backend not connected</p>
+  </div>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const role = document.getElementById("role").value;
+
+      if (email && role) {
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userRole", role);
+        window.location.href = "mock.html";
+      } else {
+        alert("Please enter email and select role");
+      }
+    });
+  </script>
+</body>
+</html>
